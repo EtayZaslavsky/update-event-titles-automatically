@@ -1,9 +1,7 @@
-# outlook-event-time-macro
-A VBA macro for Office Outlook that updates the Title of an event with the event's time range, on event creation and change.
-
 # Outlook VBA Script for Calendar Event Title Update Automation
 
 This VBA script for Microsoft Outlook automates the process of updating the subject line of calendar items in a shared calendar. It ensures that the time of the event is included in the subject line and updates the subject line if the time of the event changes.
+
 
 ## Usage
 
@@ -23,6 +21,7 @@ This VBA script for Microsoft Outlook automates the process of updating the subj
 
 This script keeps the subject line of each calendar item in the shared calendar updated with the correct start and end times, ensuring consistency and accuracy.
 
+
 ## Additional Sections
 
 ### Enabling Macro Security
@@ -41,6 +40,7 @@ Before using VBA macros, you need to enable macros in Outlook:
 4. **Add Macro**: Find your macro (e.g., `Project1.Initialize_handler`), select it, and click `Add`.
 5. **Rename Macro**: Optionally, rename the macro for better readability.
 6. **Save Changes**: Click `OK` to save your changes and close the Outlook Options window.
+
 
 ## Technical Documentation
 
