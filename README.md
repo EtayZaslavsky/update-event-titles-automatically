@@ -1,4 +1,4 @@
-# Outlook VBA Script for Calendar Event Title Update Automation
+# Outlook VBA Script to Automatically Update Events' Titles
 
 This VBA script for Microsoft Outlook automates the process of updating the subject line of calendar items in a shared calendar. It ensures that the time of the event is included in the subject line and updates the subject line if the time of the event changes.
 
