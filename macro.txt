@@ -1,0 +1,57 @@
+Public WithEvents myOlitems As Outlook.Items
+
+Const CalendarMailAddress = "ADDRESS@ORG.COM"
+Const MainSeparator = "|"
+Const TimeSeperator = "_"
+
+Public Sub Initialize_handler()
+    Set NameSpace = Application.GetNamespace("MAPI")
+    Set Recipient = NameSpace.CreateRecipient(CalendarMailAddress)
+    Set SharedFolder = NameSpace.GetSharedDefaultFolder(Recipient, olFolderCalendar)
+    Set myOlitems = SharedFolder.Items
+End Sub
+
+Public Function get_item_time(ByVal Item As Object) As String
+    get_item_time = "" & CStr(Left(Split(Item.Start, " ")(1), 5)) & TimeSeperator & CStr(Left(Split(Item.End, " ")(1), 5))
+End Function
+
+Public Function get_subject_time(ByVal Item As Object) As String
+    get_subject_time = Split(Item.Subject," ")(0)
+End Function
+
+Public Function get_subject_text(ByVal Item As Object) As String
+    get_subject_text = Split(Item.Subject, MainSeparator)(1)
+End Function
+
+Public Function format_full_subject(ByVal Item As Object) As String 
+    format_full_subject = get_item_time(item) & MainSeparator & get_subject_text(Item)
+End Function
+
+Public Function is_time_changed(ByVal Item As Object) As Boolean
+    is_time_changed = get_subject_time(item)<>get_item_time(Item)
+End Function
+
+Private Sub change_subject(ByVal Item As Object)
+    If InStr(Item.Subject, MainSeparator) = 0 Then
+        Item.Subject = get_item_time(Item) & MainSeparator & Item.Subject
+        Item.Close(0)
+    End If
+    If InStr(Item.Subject, MainSeparator) <> 0 Then
+        If is_time_changed(Item) Then
+            Item.Subject = format_full_subject(Item)
+            Item.Close (0)
+        Else
+            Item.Close (1)
+        End If
+    End If
+End Sub
+
+Private Sub myolitems_ItemAdd(ByVal Item As Object)
+    Call change_subject(Item)
+End Sub
+
+Private Sub myOlitems_ItemChange(ByVal Item As Object)
+    Call change_subject(Item)
+End Sub
+
+
