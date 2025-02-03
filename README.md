@@ -3,9 +3,9 @@
 This VBA script for Microsoft Outlook automates the process of updating the subject line of calendar items in a shared calendar. It ensures that the time of the event is included in the subject line and updates the subject line if the time of the event changes.
 
 Continue reading to make it work.
-I recommend to follow along with the [visual screenshots tutorial] (/blob/main/tutorial.pdf) on another screen.
+I recommend to follow along with the [visual screenshots tutorial](/blob/main/tutorial.pdf) on another screen.
 
-For questions, connect by email zaslavsky@pm.me or [via linkedin]( https://linkedin.com/in/etay-zaslavsky).
+For questions, connect by email zaslavsky(at)pm.me or [via linkedin]( https://linkedin.com/in/etay-zaslavsky).
 ## Usage
 
 ### prequisites
